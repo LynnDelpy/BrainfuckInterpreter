@@ -1,7 +1,5 @@
 # Brainfuck Interpreter
 
-![Brainfuck Interpreter Logo](https://upload.wikimedia.org/wikipedia/commons/7/7e/Brainfuck_logo.png)
-
 Welcome to the **Brainfuck Interpreter**! This project is a graphical user interface (GUI) application that allows you to write and execute Brainfuck code easily. The interpreter supports basic Brainfuck operations and visualizes the state of memory during execution.
 
 ## Table of Contents
