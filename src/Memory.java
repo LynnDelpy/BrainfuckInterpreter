@@ -1,13 +1,10 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class Memory {
     private static final int MEMORY_SIZE = 30000;
-    private Map<Integer, Integer> memoryCells;
+    private int[] memoryCells;
     private int memoryPointer;
 
     public Memory() {
-        memoryCells = new HashMap<>();
+        memoryCells = new int[MEMORY_SIZE];
         memoryPointer = 0;
     }
 
@@ -20,29 +17,33 @@ public class Memory {
     }
 
     public void incrementCell() {
-        memoryCells.put(memoryPointer, getCurrentCell() + 1);
+        memoryCells[memoryPointer] = (memoryCells[memoryPointer] + 1) & 0xFF;
     }
 
     public void decrementCell() {
-        memoryCells.put(memoryPointer, getCurrentCell() - 1);
+        memoryCells[memoryPointer] = (memoryCells[memoryPointer] - 1 + 256) & 0xFF;
     }
 
     public int getCurrentCell() {
-        return memoryCells.getOrDefault(memoryPointer, 0);
+        return memoryCells[memoryPointer];
     }
 
     public void setCurrentCell(int value) {
-        memoryCells.put(memoryPointer, value);
+        memoryCells[memoryPointer] = value & 0xFF;
     }
 
     public String getUsedMemoryState() {
         StringBuilder memoryState = new StringBuilder();
-        memoryCells.forEach((key, value) -> memoryState.append(String.format("Cell %d: %02X\n", key, value & 0xFF)));
+        for (int i = 0; i < MEMORY_SIZE; i++) {
+            if (memoryCells[i] != 0) {
+                memoryState.append(String.format("Cell %d: %02X\n", i, memoryCells[i]));
+            }
+        }
         return memoryState.length() > 0 ? memoryState.toString() : "No memory used.";
     }
 
     public void reset() {
-        memoryCells.clear();
+        memoryCells = new int[MEMORY_SIZE];
         memoryPointer = 0;
     }
 }
