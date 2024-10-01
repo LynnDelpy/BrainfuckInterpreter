@@ -16,30 +16,25 @@ public class SwingBrainfuckInterpreterGUI extends JFrame implements BrainfuckInt
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Editor area for writing Brainfuck code
         editorArea = new JTextArea(10, 40);
         JScrollPane editorScrollPane = new JScrollPane(editorArea);
         editorScrollPane.setBorder(BorderFactory.createTitledBorder("Brainfuck Editor"));
 
-        // Input field
         inputField = new JTextField(20);
         JPanel inputPanel = new JPanel(new FlowLayout());
         inputPanel.setBorder(BorderFactory.createTitledBorder("Input"));
         inputPanel.add(inputField);
 
-        // Output area to display results
         outputArea = new JTextArea(5, 40);
         outputArea.setEditable(false);
         JScrollPane outputScrollPane = new JScrollPane(outputArea);
         outputScrollPane.setBorder(BorderFactory.createTitledBorder("Output"));
 
-        // Memory display area
         memoryArea = new JTextArea(5, 40);
         memoryArea.setEditable(false);
         JScrollPane memoryScrollPane = new JScrollPane(memoryArea);
         memoryScrollPane.setBorder(BorderFactory.createTitledBorder("Memory"));
 
-        // Run button
         runButton = new JButton("Run");
         runButton.addActionListener(new ActionListener() {
             @Override
