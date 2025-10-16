@@ -21,7 +21,7 @@ Make sure you have Java Development Kit (JDK) installed on your machine.
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/yourusername/brainfuck-interpreter.git
+git clone https://github.com/LynnDelpy/brainfuck-interpreter.git
 cd brainfuck-interpreter
 ```
 
